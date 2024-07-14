@@ -1,0 +1,188 @@
+@font-face {
+    font-family: title;
+    src: url(./title.woff2);
+}
+@font-face {
+    font-family: bb;
+    src: url(./NBInternationalProBoo.woff2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+
+#main {
+    overflow: hidden;
+}
+
+#page1 {
+    min-height: 100vh;
+    width: 100%;
+    background-color: white;
+    position: relative;
+    z-index: 9;
+    overflow-x: hidden;
+}
+
+#lipstick1{
+    width: 180px;
+    height: 200px;
+    position: absolute;
+    top:16vw;
+    left: 10vw;
+    rotate: 20deg;
+  
+}
+#lipstick1 img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  
+}
+#lipstick2 img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  
+}
+#lipstick2{
+    width: 180px;
+    height: 200px;
+    position: absolute;
+    top:10vw;
+    right: 10vw;
+    rotate: -20deg;
+    /* z-index: 99; */
+}
+#page1 h1 {
+    font-size: 6.7vw;
+    font-family: 'PP Mori', sans-serif;
+    font-weight: 300;
+    margin-top: 12vw;
+    margin-left: 4vw;
+}
+
+#page1 h2 {
+    font-size: 6.7vw;
+    font-family: 'PP Mori', sans-serif;
+    font-weight: 300;
+    margin-left: 32vw;
+}
+
+#page1 video {
+    width: 60%;
+    height: 60%;
+    position: relative;
+    left: 50%;
+    margin-top: 100px;
+    transform: translate(-50%, 0);
+}
+
+#page3 {
+    height: 100vh;
+    background-color: white;
+    width: 100%;
+}
+
+#page1 span {
+    background-color: palevioletred;
+    color: white;
+    padding: 10px;
+    border-radius: 70px;
+}
+
+#page2 {
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+}
+
+.fixed_wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.fixed_target {
+    position: absolute;
+    bottom: -100vh;
+}
+
+.fixed,
+.fixed_target {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.fixed {
+    height: 600px;
+    width: 500px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+ 
+}
+
+#page4 {
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lipstick1 i{
+    color: palevioletred;
+}
+#lipstick2 i{
+    color: orange;
+}
+#lip-spark{
+    position: relative;
+    position: absolute;
+    top: -8px;
+    left: 40px;
+    transform: rotate(0deg);
+}
+#lip-spark i:nth-child(1){
+  position:absolute;
+  top: 20px;
+
+}
+nav{
+    width: 100%;
+    /* background-color: blue; */
+    height: 80px;
+    position: absolute;
+    z-index: 10;
+    padding-top: 10px;
+   
+}
+#img{
+    width: 160px;
+    height:100px;
+    /* background-color: red; */
+}
+#img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+nav h2{
+    font-family: bb;
+    margin-right: 20px;
+}
