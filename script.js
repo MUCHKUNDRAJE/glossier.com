@@ -179,49 +179,89 @@ tl3.to("#right-2 #slide2",{
 },"..mm")
 
 document.addEventListener('DOMContentLoaded', function() {
-    var click = document.querySelector("#hi");
-    var image = document.querySelector("#image-track");
+  var clickHi = document.querySelector("#hi");
+  var clickHello = document.querySelector("#hello");
+  var image = document.querySelector("#big-daday");
 
-    click.addEventListener("click", function() {
-        count = 30;
-        count++; 
+  clickHi.addEventListener("click", function() {
       gsap.to(image, {
-        x: "+= -20%",
-        duration: 1 ,// Add a duration for smoother animation
+          x: "-=10%",
+          duration: 1, // Add a duration for smoother animation
+          onComplete: function() {
+              console.log(gsap.getProperty(image, "x"));
+          }
       });
-    });
-  });
-  var imageTrack = document.querySelector("#image-track");
-  var isDragging = false;
-  var startX;
-  var currentX;
-  var prevX = 0;
-
-  imageTrack.addEventListener("mousedown", function(e) {
-    isDragging = true;
-    startX = e.clientX - prevX;
-    imageTrack.classList.add('dragging');
   });
 
-  document.addEventListener("mousemove", function(e) {
-    if (!isDragging) return;
-    e.preventDefault();
-    currentX = e.clientX - startX;
-    gsap.to(imageTrack, {
-      x: currentX
-    });
+  clickHello.addEventListener("click", function() {
+      gsap.to(image, {
+          x: "+=10%",
+          duration: 1, // Add a duration for smoother animation
+          onComplete: function() {
+              console.log(gsap.getProperty(image, "x"));
+          }
+      });
   });
+});
 
-  document.addEventListener("mouseup", function() {
-    if (!isDragging) return;
-    isDragging = false;
-    prevX = currentX;
-    imageTrack.classList.remove('dragging');
-  });
 
-  imageTrack.addEventListener("mouseleave", function() {
-    if (!isDragging) return;
-    isDragging = false;
-    prevX = currentX;
-    imageTrack.classList.remove('dragging');
-  });
+
+  var width = document.querySelectorAll("#width");
+var image = document.querySelectorAll("#image-track");
+var class1 = document.querySelectorAll("#class");
+var text = document.querySelectorAll("#text");
+var count = 0;
+var side = document.querySelectorAll(" #side ");
+var byside = document.querySelectorAll("#byside");
+
+width.forEach(function(val,index){
+  val.addEventListener("click", function() {
+    var tl4 = gsap.timeline();
+    
+    if (count % 2 === 0) {
+ side[index].style.opacity=0,
+ byside[index].style.opacity=1,
+      
+        tl4.to(image[index], {
+            width: "700px",
+            ease: "power3.out",
+            duration: 1,
+        }, "mmm")
+        .to(class1[index], {
+            borderTopRightRadius: "20px",
+            borderBottomRightRadius: "20px",
+        }, "mmm")
+        .to(text[index], {
+            display: "block",
+            delay: 0.6,
+        }, "mmm")
+        .to(text[index], {
+            opacity: 1,
+            delay: 0.6,
+        }, "mmm");
+    } else {
+      side[index].style.opacity=1,
+      byside[index].style.opacity=0,
+        tl4.to(text[index], {
+            opacity: 0,
+            display: "none",
+        })
+        .to(image, {
+          delay: 0.3,
+          width: "320px",
+          ease: "power3.out",
+          duration: 1,
+      })
+        .to(class1[index], {
+            delay: 0.6,
+            borderTopRightRadius: "20px",
+            borderBottomRightRadius: "20px",
+        });
+     
+    }
+    
+    count++;
+});
+
+
+})
