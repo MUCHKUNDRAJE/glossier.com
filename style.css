@@ -111,14 +111,52 @@ body {
   font-family: "PP Mori", sans-serif;
 }
 
-#page3 {
+#page3, #page6 {
   height: 100vh;
   background-color: white;
   width: 100%;
 }
 
+#skincare{
+  width: 100%;
+  min-height: 700vh;
+  background-color :white;
+  /* opacity: 0.4; */
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 9999;
+  padding: 70px;
+  /* width: 0%; */
+}
 
+#skincare h1{
+  font-family: title;
+  font-size: 3vw;
+  text-transform: capitalize;
 
+}
+#makeup1{
+  width: 100%;
+  min-height: 700vh;
+  background-color :white;
+  /* opacity: 0.4; */
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 9999;
+  padding: 70px;
+  /* width: 0%; */
+}
+
+#makeup1 h1{
+  font-family: title;
+  font-size: 3vw;
+  text-transform: capitalize;
+
+}
 
 
 #lipstick1 i {
@@ -145,6 +183,7 @@ nav {
   position: absolute;
   z-index: 10;
   padding-top: 10px;
+  /* border-bottom:1px solid #2F2F2F ; */
 }
 #img {
   width: 160px;
@@ -157,9 +196,67 @@ nav {
   object-fit: contain;
 }
 
-nav h3 {
+nav h3{
+font-family: pp;
+transition: all ease 0.5s;
+z-index: 1;
+}
+#div5:hover h3 {
+  font-family: pp;
+  transition: all ease 0.5s;
+  z-index: 1;
+  color: white;
+ }
+#div5{
+  /* width: 100px; */
+  padding: 2px;
+  cursor: pointer;
+  height: 21px;
+  /* background-color: red; */
+  overflow: hidden;
+  position: relative;
+  transition: all ease 0.3s;
+
+
+}
+#div5::after{
+ content: " ";
+ width: 0px;
+ height: 24px;
+ border-radius:2px;
+ /* background-color: red; */
+ position: absolute;
+ top: 0%;
+ left: 0%;
+ transition: all ease 0.6s;
+ z-index:-1;
+
+}
+#div5:hover:after{
+  content: " ";
+  width: 100px;
+  border-radius:2px;
+  height: 21px;
+  background-color:#fe7b4b;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+
+ }
+ #div5:hover:after:nth-child(2)
+ {
+  background-color: palevioletred;
+ }
+ #div5:hover{
+  transform: scale(1.2);
+ }
+#div5:hover h3 {
+  transform: translateY(-101%);
+}
+nav i {
   font-family: bb;
-  margin-right: 20px;
+  margin-right: 25px;
+  font-size:1.6vw ;
 }
 
 #page3 {
@@ -478,6 +575,9 @@ margin-top: 130px;
  background-color: white;
  height: 100vh;
  z-index: 9;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
 #gride{
   /* background-color: red; */
@@ -487,6 +587,15 @@ margin-top: 130px;
  position: relative;
 }
 #image-track {
+  display: flex;
+  /* gap: 4vmin; */
+  /* position: absolute; */
+  user-select: none; /* -- Prevent image highlighting -- */
+  margin-top: 70px;
+  border-radius:20px ;
+    box-shadow: 4px 4px 4px 4px #aaaaaa;
+}
+#image-track1{
   display: flex;
   /* gap: 4vmin; */
   /* position: absolute; */
@@ -516,6 +625,16 @@ margin-top: 130px;
 }
 #image-track{
   width:320px;
+  height: 400px;
+  background-color: #F7F7F7;
+  /* padding: 20px;
+  padding-top:50px ; */
+  display: flex;
+  transition: all ease 0.3;
+
+}
+#image-track1{
+  width:700px;
   height: 400px;
   background-color: #F7F7F7;
   /* padding: 20px;
@@ -587,6 +706,14 @@ opacity: 0;
 display: none;
 padding: 30px;
 }
+#text1{
+  width:370px;
+  height: 400px; ;
+  /* background-color: red; */
+  opacity: 1;
+  /* display: none; */
+  padding: 30px;
+  }
 #body{
   font-family: title;
   font-size: 1.3vw;
@@ -622,3 +749,29 @@ padding: 30px;
 #byside{
 opacity: 0;
 }
+
+#circle{
+  width: 55px;
+  height: 55px;
+  /* background-color: grey; */
+  border-radius: 50px;
+  border: 3px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-family: title;
+  font-weight:100 ;
+  cursor: pointer;
+}
+#left-footer{
+ width: 60%;
+ height: 100%;
+ /* background-color: red; */
+}
+#right-footer{
+  width: 50%;
+  height: 100%;
+  /* background-color: black; */
+ }
+
