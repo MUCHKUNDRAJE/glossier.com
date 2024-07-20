@@ -304,3 +304,130 @@ makeup.addEventListener("click",function(){
      })
   
 })
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let isDrawing = false;
+let startX, startY;
+let undoStack = [];
+let redoStack = [];
+
+// Save the current state to the undo stack
+function saveState() {
+  undoStack.push(canvas.toDataURL());
+  redoStack = []; // Clear the redo stack whenever a new action is taken
+}
+
+canvas.addEventListener('mousedown', (e) => {
+  isDrawing = true;
+  startX = e.offsetX;
+  startY = e.offsetY;
+  saveState();
+});
+
+canvas.addEventListener('mousemove', (e) => {
+  if (isDrawing) {
+    const currentX = e.offsetX;
+    const currentY = e.offsetY;
+    draw(startX, startY, currentX, currentY);
+    startX = currentX;
+    startY = currentY;
+  }
+});
+
+canvas.addEventListener('mouseup', (e) => {
+  if (isDrawing) {
+    isDrawing = false;
+  }
+});
+
+function draw(x1, y1, x2, y2,) {
+//   ctx.strokeStyle = "#EA9A75"; // Set the stroke color to red
+  ctx.lineWidth = 5; // Set the stroke size (e.g., 5 pixels)
+  ctx.beginPath();
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x2, y2);
+  ctx.stroke();
+}
+
+function createDiv(x1, y1, x2, y2) {
+  const div = document.createElement('div');
+  div.classList.add('generated-div');
+  div.style.position = 'absolute';
+  div.style.left = `${Math.min(x1, x2)}px`;
+  div.style.top = `${Math.min(y1, y2)}px`;
+  div.style.width = `${Math.abs(x2 - x1)}px`;
+  div.style.height = `${Math.abs(y2 - y1)}px`;
+  div.style.backgroundColor = "#ff0000"; // Corrected color code
+  document.body.appendChild(div);
+}
+
+// Clear the canvas when the button is clicked
+const clearCanvasButton = document.getElementById('clearCanvas');
+clearCanvasButton.addEventListener('click', () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  saveState();
+});
+
+// Undo functionality
+const undoButton = document.getElementById('undo');
+undoButton.addEventListener('click', () => {
+  if (undoStack.length > 0) {
+    redoStack.push(canvas.toDataURL());
+    const lastState = undoStack.pop();
+    restoreState(lastState);
+  }
+});
+
+// Redo functionality
+const redoButton = document.getElementById('redo');
+redoButton.addEventListener('click', () => {
+  if (redoStack.length > 0) {
+    undoStack.push(canvas.toDataURL());
+    const nextState = redoStack.pop();
+    restoreState(nextState);
+  }
+});
+
+// Restore the canvas state from a given data URL
+function restoreState(state) {
+  const img = new Image();
+  img.src = state;
+  img.onload = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0);
+  };
+}
+
+// Initial state save
+saveState();
+
+var color = [
+    "#EA9A75",
+    "#CD4464",
+    "#D28BA8",
+    "#E04E45",
+    "#9E5C45",
+
+    "#913469",
+    "#A82239",
+    "#C56765",
+    "#EBBBB9",
+    "#DD8384",
+
+    "#C10016",
+    "#F09491",
+    "#7C3A2D",
+    "#AC145A",
+    "#D62E44"
+
+]
+
+var colorDiv = document.querySelectorAll("#color");
+
+colorDiv.forEach((div, index) => {
+    div.style.backgroundColor = color[index];
+    div.addEventListener('click', () => {
+        console.log("Color selected:", color[index]);
+      ctx.strokeStyle = `${ color[index]}`;
+    });
+  });
