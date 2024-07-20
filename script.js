@@ -421,13 +421,49 @@ var color = [
     "#D62E44"
 
 ]
+const colorNames = [
+  "Tumbleweed",
+  "Brick Red",
+  "Careys Pink",
+  "Amaranth",
+  "Sepia Skin",
+  "Royal Heath",
+  "Mexican Red",
+  "Contessa",
+  "Beauty Bush",
+  "New York Pink",
+  "Guardsman ",
+  "Mauvelous",
+  "Chocolate",
+  "Lipstick",
+  "Amaranth"
+];
+
 
 var colorDiv = document.querySelectorAll("#color");
+var panel = document.querySelector("#Fine");
+
 
 colorDiv.forEach((div, index) => {
     div.style.backgroundColor = color[index];
     div.addEventListener('click', () => {
         console.log("Color selected:", color[index]);
       ctx.strokeStyle = `${ color[index]}`;
+      panel.style.backgroundColor =`${ color[index]}`
+      panel.style.color =`#ffffff`
+      panel.innerHTML =`<h2>${ colorNames[index]}</h2>
+      <h2>${ colorNames[index]}</h2>`
     });
   });
+  var right = document.querySelector("#right");
+  var background = document.querySelector("#canvas")
+  background.addEventListener("mouseenter",function(){
+    right.style.opacity = 0;
+  }) 
+  var background = document.querySelector("#canvas")
+  background.addEventListener("mouseleave",function(){
+    right.style.opacity = 0.5;
+  }) 
+
+
+

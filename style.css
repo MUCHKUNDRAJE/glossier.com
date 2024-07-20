@@ -164,6 +164,14 @@ body {
 }
 #lipstick2 i {
   color: orange;
+  animation: up 2s infinite delay iteration-count forwards fill-mode;
+}
+@keyframes up {
+  from{
+    transform: translateY(1%);
+  }to{
+    transform: translateY(10%);
+  }
 }
 #lip-spark {
   position: relative;
@@ -1074,4 +1082,46 @@ color: white;
 }
 .tooltip{
   margin-top: 10px;
+}
+
+#Fine {
+  width: 230px;
+  height: 40px;
+  position: absolute;
+   bottom: 10%;
+   right: 0%;
+
+  /* padding: 10px; */
+  /* padding: 5px 5px 5px 5px; */
+  padding-left: 30px;
+  padding-right: 5px;
+  border: 3px solid #2F2F2F;
+ background-color: #2F2F2F;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 0; /* Ensure parent stacking context */
+  color: white;
+  cursor: pointer;
+}
+
+#Fine h2 {
+
+  transition: all ease 0.3s;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-transform: capitalize;
+  /* text-align: center; */
+  margin-left: 5px;
+  margin-right: 5px;
+ /* Ensure it is in the stacking context */
+  z-index: 1; /* Ensure it is above the pseudo-element */
+}
+#Fine h2:nth-child(2){
+  color:white;
+  font-size: 2vw;
+  /* text-align: center; */
+}
+#Fine:hover h2 {
+  transform: translateY(-160%);
+  /* text-align: center; */
 }
