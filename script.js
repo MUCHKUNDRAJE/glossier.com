@@ -214,7 +214,9 @@ document.addEventListener('DOMContentLoaded', function() {
           x: "-=10%",
           duration: 1, // Add a duration for smoother animation
           onComplete: function() {
-              console.log(gsap.getProperty(image, "x"));
+         
+
+
           }
       });
   });
@@ -224,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
           x: "+=10%",
           duration: 1, // Add a duration for smoother animation
           onComplete: function() {
-              console.log(gsap.getProperty(image, "x"));
+          
           }
       });
   });
@@ -292,34 +294,7 @@ width.forEach(function(val,index){
 
 })
 
-var Skincare = document.querySelector(".skin1");
-var makeup = document.querySelector(".skin2");
-var display = document.querySelector("#skincare");
-var makeup = document.querySelector("#makeup");
-var end = document.querySelector("#circle");
-var tl5 = gsap.timeline();
 
-
-Skincare.addEventListener("click",function(){
-    tl5.to(display,{
-       opacity:1,
-     })
-     tl5.to(display,{
-        display:"block",
-     })
-  
-})
-
-
-end.addEventListener("click",function(){
-    tl5.to(display,{
-        opacity:0,
-     })
-     tl5.to(display,{
-        display:"none",
-     })
-  
-})
 
 makeup.addEventListener("click",function(){
     tl5.to(display,{
@@ -462,7 +437,7 @@ const colorNames = [
   "Mauvelous",
   "Chocolate",
   "Lipstick",
-  "Amaranth"
+  "Cherry Red."
 ];
 
 
@@ -473,7 +448,7 @@ var panel = document.querySelector("#Fine");
 colorDiv.forEach((div, index) => {
     div.style.backgroundColor = color[index];
     div.addEventListener('click', () => {
-        console.log("Color selected:", color[index]);
+   
       ctx.strokeStyle = `${ color[index]}`;
       panel.style.backgroundColor =`${ color[index]}`
       panel.style.color =`#ffffff`
@@ -503,7 +478,7 @@ colorDiv.forEach((div, index) => {
     let max =100;
     let circle = setInterval(() => {
       initial++;
-      console.log(initial)
+
       let angle = (initial / 100) * 360;
       progress.style.background = `conic-gradient(rgb(37, 37, 37) ${angle}deg, #d1d1d1 0deg)`;
 
