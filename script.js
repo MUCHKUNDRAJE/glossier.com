@@ -23,39 +23,65 @@ ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 ScrollTrigger.refresh();
 
 // Animation for page1 elements
+// Animation for page1 elements
 var tl = gsap.timeline({
-    scrollTrigger: {
-        trigger: "#page1 h1",
-        scroller: "#main",
-        // markers: true,
-        start: "top 27%",
-        end: "top 0",
-        scrub: 3
-    }
+  scrollTrigger: {
+      trigger: "#page1 h1",
+      scroller: "#main",
+      // markers: true,
+      start: "top 27%",
+      end: "top 0",
+      scrub: 3
+  }
 });
 
 tl.to("#page1 h1", {
-    x: -130,
+  x: -130,
 }, "anim");
 
 tl.to("#page1 h2", {
-    x: 130,
+  x: 130,
 }, "anim");
 
 tl.to("#page1 video", {
-    width: "95%"
+  width: "95%"
 }, "anim");
 
 tl.to("#page1 #lipstick1", {
-    rotate: "40deg"
+  rotate: "40deg"
 }, "anim");
 
 tl.to("#page1 #lipstick2", {
-    rotate: "0deg"
+  rotate: "0deg"
 }, "anim");
+
+// Animation for #load element
+tl6 =gsap.timeline()
+
+tl6.to("#load", {
+  y:-1000,
+  delay:2,
+  duration:2.5,
+  ease:"power3.out",
+});
+
+
+
+
+
+
+
+
 
 var vedio = document.querySelector(" #page1 #vedio video");
 var mouse = document.querySelector("#game");
+
+
+
+
+
+
+
 
 vedio.addEventListener("mousemove",function(dets){
  gsap.to(mouse,{ 
@@ -466,4 +492,29 @@ colorDiv.forEach((div, index) => {
   }) 
 
 
+
+
+        
+  var progress = document.querySelector("#seemore1");
+  progress.addEventListener("mouseenter",function(){
+    let initial = 0;
+        
+    
+    let max =100;
+    let circle = setInterval(() => {
+      initial++;
+      console.log(initial)
+      let angle = (initial / 100) * 360;
+      progress.style.background = `conic-gradient(rgb(37, 37, 37) ${angle}deg, #d1d1d1 0deg)`;
+
+      if (initial >= max) {
+        clearInterval(circle);
+      }
+    }, 5);
+  })
+
+  progress.addEventListener("mouseleave",function(){
+   
+      progress.style.background = `conic-gradient(rgb(189, 162, 3) 0deg, #d1d1d1 0deg)`;
+  })
 
